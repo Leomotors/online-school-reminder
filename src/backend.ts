@@ -62,7 +62,7 @@ export function getPeriod() {
   }
 }
 
-function getPeriodInfo(p: number) {
+export function getPeriodInfo(p: number) {
   const day = new Date().getDay();
   // @ts-ignore
   const pinfo = period[`${day}:${p}`];
@@ -75,7 +75,7 @@ function getPeriodInfo(p: number) {
   };
 }
 
-function withinPeriod(p: number, dtnow: Date): boolean {
+export function withinPeriod(p: number, dtnow: Date): boolean {
   const now = `${dtnow.getHours()}:${dtnow.getMinutes()}`;
 
   // @ts-ignore
@@ -90,7 +90,7 @@ function withinPeriod(p: number, dtnow: Date): boolean {
 }
 
 // * By GitHub Copilot
-function cmpTime(a: string, b: string): number {
+export function cmpTime(a: string, b: string): number {
   const [ah, am] = a.split(":");
   const [bh, bm] = b.split(":");
 
