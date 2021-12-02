@@ -4,8 +4,17 @@ import "twind/shim";
 import React, { FC, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-import { getPeriod, PeriodStatus, Period } from "./backend";
+import {
+  getPeriod,
+  PeriodStatus,
+  Period,
+  ROTCDay,
+  room,
+  branch,
+} from "./backend";
 import { Version, BuildTime } from "./config";
+
+import { ThaiFlag } from "./utils";
 
 function openWarp(url: string) {
   return () => {
@@ -29,8 +38,13 @@ const Popup: FC = () => {
 
   return (
     <div className="popup bg-blue-200 flex flex-col justify-center items-center p-6">
-      <h1>{time.toLocaleString()}</h1>
-      {currentPeriod.status == PeriodStatus.IN_PERIOD ? (
+      <h2>
+        {room}・{branch}・{time.toLocaleString()}
+      </h2>
+      <hr />
+      {day == ROTCDay ? (
+        <ROTC />
+      ) : currentPeriod.status == PeriodStatus.IN_PERIOD ? (
         <DuringPeriod period={currentPeriod} />
       ) : currentPeriod.status == PeriodStatus.IN_BREAK ? (
         <DuringBreak period={currentPeriod} />
@@ -89,6 +103,19 @@ const ClassEnded: FC<{ period: Period }> = ({ period }) => {
         src="https://c.tenor.com/zLO1Ljcx1dEAAAAC/karlson-vibe-dani.gif"
         onClick={openWarp("https://www.youtube.com/watch?v=FtE6SV_1wu4")}
       />
+    </div>
+  );
+};
+
+const ROTC: FC = () => {
+  return (
+    <div className="content m-4">
+      <div className="ROTC-title flex flex-row justify-center">
+        <ThaiFlag size="50" />
+        <h1>&nbsp;TODAY IS ROTC&nbsp;</h1>
+        <ThaiFlag size="50" />
+      </div>
+      <img src="https://pbs.twimg.com/media/EymEfj7VgAcfFUc.jpg" />
     </div>
   );
 };

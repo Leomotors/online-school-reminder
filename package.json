@@ -1,12 +1,12 @@
 {
   "name": "online-school-reminder",
-  "version": "1.0.0",
+  "version": "1.0.69",
   "description": "Chrome Extension that will remind you to enter class",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
     "build": "yarn config:pkg && webpack --config webpack/webpack.prod.js",
-    "clean": "rimraf dist",
+    "clean": "node scripts/clean.js",
     "test": "ts-mocha test/test.spec.ts",
     "config:pkg": "node node_modules/leomotors-automation/configPackage.js"
   },
@@ -17,6 +17,7 @@
     "url": "https://github.com/Leomotors/online-school-reminder.git"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "twind": "^0.16.16",
@@ -34,7 +35,6 @@
     "leomotors-automation": "^1.0.1",
     "mocha": "^9.1.3",
     "prettier": "^2.5.0",
-    "rimraf": "^3.0.2",
     "sass": "^1.44.0",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",

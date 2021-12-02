@@ -4,3 +4,5 @@ dist/
 tmp/
 
 src/config.ts
+.env
+dist

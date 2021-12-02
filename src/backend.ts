@@ -1,4 +1,5 @@
 import { time, period } from "./data/schedule.json";
+export { ROTC as ROTCDay, room, branch } from "./data/schedule.json";
 
 export enum PeriodStatus {
   IN_PERIOD = 0,

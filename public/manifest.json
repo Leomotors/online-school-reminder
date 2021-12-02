@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Online School Reminder",
   "description": "Chrome Extension that will remind you to enter class",
-  "version": "1.0.0",
+  "version": "1.0.69",
   "action": {
     "default_icon": "Jeff.png",
     "default_popup": "popup.html"
