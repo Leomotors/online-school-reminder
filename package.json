@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
-    "build": "webpack --config webpack/webpack.prod.js",
+    "build": "yarn config:pkg && webpack --config webpack/webpack.prod.js",
     "clean": "rimraf dist",
-    "test": "ts-mocha test/test.spec.ts"
+    "test": "ts-mocha test/test.spec.ts",
+    "config:pkg": "node node_modules/leomotors-automation/configPackage.js"
   },
   "author": "Leomotors",
   "license": "MIT",
@@ -18,11 +19,11 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "twind": "^0.16.16",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/chrome": "0.0.166",
-    "@types/jest": "^27.0.3",
     "@types/mocha": "^9.0.0",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
@@ -30,14 +31,13 @@
     "copy-webpack-plugin": "^10.0.0",
     "css-loader": "^6.5.1",
     "glob": "^7.2.0",
-    "jest": "^27.4.3",
+    "leomotors-automation": "^1.0.1",
     "mocha": "^9.1.3",
     "prettier": "^2.5.0",
     "rimraf": "^3.0.2",
     "sass": "^1.44.0",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
-    "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.6",
     "ts-mocha": "^8.0.0",
     "typescript": "^4.5.2",

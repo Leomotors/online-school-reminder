@@ -6,7 +6,7 @@ By clicking on this extension, I will know it right away.
 
 ## Progress
 
-- [x] Can know time
+- [x] Can know time, current and next period
 
 - [ ] Beautiful UI
 

@@ -1,10 +1,19 @@
-import "./global.scss";
 import "./popup.scss";
+import "twind/shim";
 
 import React, { FC, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-import { getPeriod, PeriodStatus } from "./backend";
+import { getPeriod, PeriodStatus, Period } from "./backend";
+import { Version, BuildTime } from "./config";
+
+function openWarp(url: string) {
+  return () => {
+    chrome.tabs.create({
+      url,
+    });
+  };
+}
 
 const Popup: FC = () => {
   const [time, setTime] = useState(new Date());
@@ -19,32 +28,67 @@ const Popup: FC = () => {
   }, []);
 
   return (
-    <div className="popup">
-      <h1>Current Time: {time.toLocaleString()}</h1>
+    <div className="popup bg-blue-200 flex flex-col justify-center items-center p-6">
+      <h1>{time.toLocaleString()}</h1>
       {currentPeriod.status == PeriodStatus.IN_PERIOD ? (
-        <>
-          <h1>
-            Current Period: {currentPeriod.period} ({currentPeriod.info!.time})
-          </h1>
-          <h1>Subject: {currentPeriod.info!.name}</h1>
-          <h1>Teacher: {currentPeriod.info!.teacher}</h1>
-          {currentPeriod.nextPeriod ? (
-            <h1>Next Period: {currentPeriod.nextPeriod.name}</h1>
-          ) : (
-            <h1>Today's class is about to end! YES</h1>
-          )}
-        </>
+        <DuringPeriod period={currentPeriod} />
       ) : currentPeriod.status == PeriodStatus.IN_BREAK ? (
-        <>
-          <h1>Break</h1>
-          <h1>
-            Next Period: {currentPeriod.nextPeriod!.name} (
-            {currentPeriod.nextPeriod!.time})
-          </h1>
-        </>
+        <DuringBreak period={currentPeriod} />
       ) : (
-        <h1>Ended</h1>
+        <ClassEnded period={currentPeriod} />
       )}
+      <p className="bg-pink-200 rounded-lg p-1.5">
+        <span
+          className="text-blue-500 hover:text-blue-600 cursor-pointer"
+          onClick={openWarp(
+            "https://github.com/Leomotors/online-school-reminder"
+          )}
+        >
+          GitHub
+        </span>
+        ・{Version}・{BuildTime}
+      </p>
+    </div>
+  );
+};
+
+const DuringPeriod: FC<{ period: Period }> = ({ period }) => {
+  return (
+    <div className="content">
+      <h1>
+        Current Period: {period.period} ({period.info!.time})
+      </h1>
+      <h1>Subject: {period.info!.name}</h1>
+      <h1>Teacher: {period.info!.teacher}</h1>
+      {period.nextPeriod ? (
+        <h1>Next Period: {period.nextPeriod.name}</h1>
+      ) : (
+        <h1>Today's class is about to end! YES</h1>
+      )}
+    </div>
+  );
+};
+
+const DuringBreak: FC<{ period: Period }> = ({ period }) => {
+  return (
+    <div className="content">
+      <h1>Break</h1>
+      <h1>
+        Next Period: {period.nextPeriod!.name} ({period.nextPeriod!.time})
+      </h1>
+    </div>
+  );
+};
+
+const ClassEnded: FC<{ period: Period }> = ({ period }) => {
+  return (
+    <div className="content">
+      <h1>Relax! Today's classes have ended!</h1>
+      <img
+        className="cursor-pointer my-4 rounded-md"
+        src="https://c.tenor.com/zLO1Ljcx1dEAAAAC/karlson-vibe-dani.gif"
+        onClick={openWarp("https://www.youtube.com/watch?v=FtE6SV_1wu4")}
+      />
     </div>
   );
 };

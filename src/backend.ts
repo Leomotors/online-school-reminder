@@ -22,7 +22,7 @@ export interface Period {
   nextPeriod?: PeriodInfo;
 }
 
-export function getPeriod() {
+export function getPeriod(): Period {
   const dtnow = new Date();
   const now = `${dtnow.getHours()}:${dtnow.getMinutes()}`;
 
