@@ -11,5 +11,6 @@
     "jsx": "react",
     "typeRoots": ["node_modules/@types"],
     "resolveJsonModule": true
-  }
+  },
+  "exclude": ["test"]
 }
