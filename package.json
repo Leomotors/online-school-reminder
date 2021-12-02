@@ -6,9 +6,7 @@
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
     "build": "webpack --config webpack/webpack.prod.js",
-    "clean": "rimraf dist",
-    "test": "npx jest",
-    "style": "prettier --write \"src/**/*.{ts,tsx}\""
+    "clean": "rimraf dist"
   },
   "author": "Leomotors",
   "license": "MIT",

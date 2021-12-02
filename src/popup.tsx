@@ -23,18 +23,25 @@ const Popup: FC = () => {
       <h1>Current Time: {time.toLocaleString()}</h1>
       {currentPeriod.status == PeriodStatus.IN_PERIOD ? (
         <>
-          <h1>Current Period: {currentPeriod.period}</h1>
+          <h1>
+            Current Period: {currentPeriod.period} ({currentPeriod.info!.time})
+          </h1>
           <h1>Subject: {currentPeriod.info!.name}</h1>
           <h1>Teacher: {currentPeriod.info!.teacher}</h1>
-          <h3>{currentPeriod.info!.time}</h3>
           {currentPeriod.nextPeriod ? (
             <h1>Next Period: {currentPeriod.nextPeriod.name}</h1>
           ) : (
-            <h1>No Next Period</h1>
+            <h1>Today's class is about to end! YES</h1>
           )}
         </>
       ) : currentPeriod.status == PeriodStatus.IN_BREAK ? (
-        <h1>Break</h1>
+        <>
+          <h1>Break</h1>
+          <h1>
+            Next Period: {currentPeriod.nextPeriod!.name} (
+            {currentPeriod.nextPeriod!.time})
+          </h1>
+        </>
       ) : (
         <h1>Ended</h1>
       )}

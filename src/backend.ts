@@ -29,14 +29,14 @@ export function getPeriod() {
   let periodIndex = 1;
   while (true) {
     // @ts-ignore
-    if (!period[`${dtnow.getDay()}:${period}`]) {
+    if (!period[`${dtnow.getDay()}:${periodIndex}`]) {
       return {
         status: PeriodStatus.ENDED,
       };
     }
 
     // @ts-ignore
-    const [start, end] = time[period].split("-");
+    const [start, end] = time[periodIndex].split("-");
     if (cmpTime(end, now) <= 0) {
       periodIndex++;
       continue;
@@ -48,7 +48,7 @@ export function getPeriod() {
         period: periodIndex,
         info: getPeriodInfo(periodIndex),
         // @ts-ignore
-        nextPeriod: period[`${dtnow.getDay()}:${period}`]
+        nextPeriod: period[`${dtnow.getDay()}:${periodIndex + 1}`]
           ? getPeriodInfo(periodIndex + 1)
           : undefined,
       };
@@ -56,7 +56,7 @@ export function getPeriod() {
       return {
         status: PeriodStatus.IN_BREAK,
         period: periodIndex,
-        info: getPeriodInfo(periodIndex),
+        nextPeriod: getPeriodInfo(periodIndex),
       };
     }
   }
@@ -76,7 +76,7 @@ function getPeriodInfo(p: number) {
 }
 
 function withinPeriod(p: number, dtnow: Date): boolean {
-  const now = `${dtnow.getHours}:${dtnow.getMinutes}`;
+  const now = `${dtnow.getHours()}:${dtnow.getMinutes()}`;
 
   // @ts-ignore
   if (!time[p]) {
@@ -86,7 +86,7 @@ function withinPeriod(p: number, dtnow: Date): boolean {
   // @ts-ignore
   const [start, end] = time[p].split("-");
 
-  return cmpTime(now, start) >= 0 && cmpTime(now, end) <= 0;
+  return cmpTime(now, start) >= 0 && cmpTime(now, end) < 0;
 }
 
 // * By GitHub Copilot
