@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-typescript-starter",
+  "name": "online-school-reminder",
   "version": "1.0.0",
-  "description": "chrome-extension-typescript-starter",
+  "description": "Chrome Extension that will remind you to enter class",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
@@ -10,31 +10,35 @@
     "test": "npx jest",
     "style": "prettier --write \"src/**/*.{ts,tsx}\""
   },
-  "author": "",
+  "author": "Leomotors",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
+    "url": "https://github.com/Leomotors/online-school-reminder.git"
   },
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.158",
-    "@types/jest": "^27.0.2",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "copy-webpack-plugin": "^9.0.1",
-    "glob": "^7.1.6",
-    "jest": "^27.2.1",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2 ",
-    "ts-jest": "^27.0.5",
-    "ts-loader": "^8.0.0",
-    "typescript": "^4.4.3 ",
-    "webpack": "^5.0.0",
-    "webpack-cli": "^4.0.0",
-    "webpack-merge": "^5.0.0"
+    "@types/chrome": "0.0.166",
+    "@types/jest": "^27.0.3",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "copy-webpack-plugin": "^10.0.0",
+    "css-loader": "^6.5.1",
+    "glob": "^7.2.0",
+    "jest": "^27.4.3",
+    "prettier": "^2.5.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
   }
 }
