@@ -1,0 +1,36 @@
+// * Anakotmai.scss : Anakotmai Font
+
+// * Copied from https://github.com/thananon/covidth/blob/main/src/App.svelte
+
+@font-face {
+  font-family: "Anakotmai";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/Anakotmai/anakotmai-medium.eot"); /* IE9 Compat Modes */
+  src: url("../public/fonts/Anakotmai/anakotmai-medium.eot#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/Anakotmai/anakotmai-medium.woff2") format("woff2"),
+    url("../public/fonts/Anakotmai/anakotmai-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Anakotmai";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../public/fonts/Anakotmai/anakotmai-bold.eot"); /* IE9 Compat Modes */
+  src: url("../public/fonts/Anakotmai/anakotmai-bold.eot#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/Anakotmai/anakotmai-bold.woff2") format("woff2"),
+    url("../public/fonts/Anakotmai/anakotmai-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Anakotmai";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../public/fonts/Anakotmai/anakotmai-light.eot"); /* IE9 Compat Modes */
+  src: url("../public/fonts/Anakotmai/anakotmai-light.eot#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/Anakotmai/anakotmai-light.woff2") format("woff2"),
+    url("../public/fonts/Anakotmai/anakotmai-light.woff") format("woff");
+}
