@@ -7,3 +7,11 @@ export const ThaiFlag: FC<{ size: string }> = ({ size }) => (
     height={size}
   />
 );
+
+export function openWarp(url: string) {
+  return () => {
+    chrome.tabs.create({
+      url,
+    });
+  };
+}

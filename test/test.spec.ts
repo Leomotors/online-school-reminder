@@ -1,6 +1,7 @@
 // @ts-check
 
 import { cmpTime } from "../src/backend";
+import { isWeekend } from "../src/components/Weekend";
 
 import { equal } from "assert";
 
@@ -15,5 +16,13 @@ describe("Test Utilities Function", () => {
     it("4:20 vs 4:20", () => {
       equal(cmpTime("4:20", "4:20"), 0);
     });
+  });
+
+  describe("Testing isWeekend() for what? idk", () => {
+    for (let i = 0; i < 7; i++) {
+      it(`Day: ${i}`, () => {
+        equal(isWeekend(i), i === 0 || i === 6);
+      });
+    }
   });
 });

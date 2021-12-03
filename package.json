@@ -1,6 +1,6 @@
 {
   "name": "online-school-reminder",
-  "version": "1.0.69",
+  "version": "1.0.420",
   "description": "Chrome Extension that will remind you to enter class",
   "main": "index.js",
   "scripts": {
