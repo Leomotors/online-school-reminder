@@ -5,7 +5,7 @@ import { Version, BuildTime } from "../config";
 
 function dateLabel() {
   const BuildDate = Date.parse(BuildTime);
-  // Calculate how far it is from BuildDate
+  // * Calculate how far it is from BuildDate
   const now = Date.now();
   const diff = now - BuildDate;
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -35,7 +35,8 @@ const FooterBar: FC = () => {
       >
         GitHub
       </span>
-      ・{Version}・{dateLabel()}
+      ・<span>{Version}</span>・
+      <span title={`Built at ${BuildTime}`}>{dateLabel()}</span>
     </p>
   );
 };

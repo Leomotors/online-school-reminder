@@ -32,11 +32,9 @@ const Popup: FC = () => {
       </h2>
       <hr />
       {day == ROTCDay ? (
-        isWeekend(day) ? (
-          <Weekend />
-        ) : (
-          <ROTC />
-        )
+        <ROTC />
+      ) : isWeekend(day) ? (
+        <Weekend />
       ) : currentPeriod.status == PeriodStatus.IN_PERIOD ? (
         <DuringPeriod period={currentPeriod} />
       ) : currentPeriod.status == PeriodStatus.IN_BREAK ? (
